@@ -1,8 +1,7 @@
 <?php
-	
 	include("content/databaseconn.php");
     session_start();
- ?>
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,9 +12,11 @@
 	
 </head>
 <body>
-    <div class="navbar navbar-inverse" role="navigation" style="margin:0px;">
-        <div class=" container-fluid">
-            <a class="navbar-brand" href="index.php"><b>ShareLink</b> </a>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" style="padding:0px;">
+        <div class="container">
+            
+            <a class="navbar-brand" style="display:block;padding-top:5px;"
+                href="index.php"><span style="float:left;font-size:2.5em;"class="glyphicon glyphicon-cloud" ></span>&nbsp;&nbsp;<b style="display:block;float:left;font-size:22px;padding-top:10px;margin-left:3px;"> Share Cloud</b></a>
         </div>
     </div>
     <br />
@@ -27,9 +28,9 @@
    
     <div class="container">
         <div class="row">
-            <div class=" col-md-6">
-                <div class=" panel panel-default">
-                    <div class=" panel-body">
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-body">
                         <div id="my-carousel" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#my-carousel" data-slide-to="0" class="active"></li>
@@ -68,44 +69,52 @@
               </div>
 
 
-            <div class=" col-md-6">
+            <div class="col-md-4">
 
-                <div class=" panel panel-default">
+                <div class="panel panel-default">
 
-                    <div class=" panel-heading">
-                        <h4 class=" panel-title">Login Page</h4>
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Login P</h4>
                     </div>
-                    <div class=" panel-body">
+                    <div class="panel-body">
                         <form class="form-horizontal" action="index.php" method="post">
+
                             <div class="form-group">
-                                <label for="username" class="col-sm-5 control-label">Username</label>
-                                <div class="col-sm-7">
-                                    <input type="username" class="form-control" id="username" name="username"  placeholder="Enter Username">
-                                </div>
+
+                                <table cellspacing="5px;">
+                                    <tr>
+                                        <td style="vertical-align:central;"><label for="username" class="col-sm-5 control-label">Username</label></td>
+                                        <td><input type="username" class="form-control" id="username" name="username" placeholder="Enter Username"><br /></td>
+                                    </tr>
+                                    <tr style="margin-top:10px;" >
+                                        <td><label for="Password" class="col-sm-5 control-label">Password</label></td>
+                                        <td><input type="password" class="form-control" id="Password" name="Password" placeholder="Enter Password"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="text-align:center">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"> Remember me
+                                                </label>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr style="text-align:center">
+                                        <td><button type="submit" name="signin" class="btn btn-success">Sign in</button></td>
+
+                                        <td><a class="btn btn-success" style="text-decoration:none;" href="signup.php">Sign up</a></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="text-align:center">
+                                            <a style="text-decoration:none;" href="ForgotPassword.php">Forgot Password</a>
+                                        </td>
+
+                                    </tr>
+                                </table>
                             </div>
-                            <div class="form-group">
-                                <label for="Password" class="col-sm-5 control-label">Password</label>
-                                <div class="col-sm-7">
-                                    <input type="password" class="form-control" id="Password" name="Password" placeholder="Enter Password">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-6 col-sm-6">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> Remember me
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-5 col-sm-7">
-                                    <div class="col-sm-4 col-sm-8">
-                                        <button type="submit" name="signin" class="btn btn-success">Sign in</button>
-                                    </div>
-                                    <div class="col-sm-8 col-sm-4">
-                                        <button type="submit"  name="forgotpassword" class="btn btn-toolbar"><a href="ForgotPassword.php">Forgot Password</a></button>
-                                    </div>
+                                
                                     <?php
                                         if (isset($_POST['signin']))
                                          {
@@ -136,14 +145,13 @@
 
                                             }
                                         }
-                                     ?>
+                                    ?>
 
-                                </div>
+                              
 
+                          
 
-                            </div>
-
-
+            
                         </form>
 
 
@@ -153,7 +161,7 @@
 
                 <div class="row">
                     <div class="col-md-offset-8 col-md-4">
-                        <button type="submit" class="btn btn-success"><a href="signup.php">Sign up</a></button>
+                        
                     </div>
                 </div>
             </div>

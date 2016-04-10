@@ -4,7 +4,7 @@
     session_start();
     global $user, $name,$sub,$name1; //$file_name, $file_size, $file_tmp, $file_type, $FileHeading, $subjects, $description, $time;
                                 
- ?>
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,12 +15,35 @@
    
 </head>
 <body>
-        <div class="navbar navbar-inverse" role="navigation" style="margin:0px;">
-            <div class=" container-fluid">
-                <a class="navbar-brand" href="Mainpage.php"><b>ShareLink</b> </a>
-            </div>
-        </div>
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation" style="padding-top:0px;">
+        <div class="container" align="center">
 
+            <a class="navbar-brand pull-left" style="display:block;padding-top:5px;"
+                href="index.php">
+                <span style="float:left;font-size:2.5em;" class="glyphicon glyphicon-cloud"></span>
+                &nbsp;&nbsp;
+                <b style="display:block;float:left;font-size:22px;padding-top:10px;margin-left:3px;">Share Cloud</b>
+            </a>
+            <div class="btn-group pull-right" style="padding-top:8px;">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+
+                    <span class="glyphicon glyphicon-cog"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="changepassword.php">Change Password</a>
+                    </li>
+                    <li>
+                        <a href="#">Logout</a>
+                    </li>
+
+                </ul>
+            </div>
+            <a href="Mainpage.php" class="pull-right" style="padding-top:15px;text-decoration:none;padding-right:10px;">
+                <span class="glyphicon glyphicon-home"></span>
+            </a>
+        </div>
+    </div>
         <div class="container">
             
                 <div class="row">

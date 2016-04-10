@@ -3,7 +3,22 @@
 	include("content/databaseconn.php");
      session_start();
      global $temp1, $temp2;
- ?>
+?>
+
+       <?php
+       $temp1=$_SESSION['user'];
+       $temp1=$_SESSION['pass'];
+
+       if (isset($_POST["signout"]))
+       {
+           session_unset();
+           session_destroy();
+           $url="index.php";
+           echo '<script>window.location = "'.$url.'";</script>';
+
+       } 
+       ?>
+                            
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,91 +26,116 @@
     <meta charset="utf-8" />
     <link href="content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="content/bootstrap/css/StyleSheet.css" rel="stylesheet" />
-    <link href="dark.css" type="text/css" rel="stylesheet" />
+    
 </head>
 <body>
-    <div class="navbar navbar-inverse" role="navigation" style="margin:0px;">
-        <div class=" container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="collapseExample">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class=" icon-bar"></span>
-                    <span class=" icon-bar"></span>
-                    <span class=" icon-bar"></span>
-                    <span class=" icon-bar"></span>
 
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" style="padding-top:0px;">
+        <div class="container">
+
+            <a class="navbar-brand pull-left" style="display:block;padding-top:5px;"
+                href="index.php">
+                <span style="float:left;font-size:2.5em;" class="glyphicon glyphicon-cloud"></span>
+                &nbsp;&nbsp;
+                <b style="display:block;float:left;font-size:22px;padding-top:10px;margin-left:3px;">Share Cloud</b>
+            </a>
+            <div class="btn-group pull-right" style="padding-top:8px;">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+
+                    <span class="glyphicon glyphicon-cog"></span>
                 </button>
-                <a class="navbar-brand" href="Mainpage.php"><b>ShareLink</b> </a>
-            </div>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="changepassword.php">Change Password</a>
+                    </li>
+                    <li>
+                        <a href="#">Logout</a>
+                    </li>
 
-            <div class="collapse navbar-collapse navbar-right" id="collapseExample">
-
-                <ul class="nav navbar-nav nav-tabs">
-                <form class=" " action="Mainpage.php" method="post">
-                            <button type="submit" class="btn btn-success"><a href="changepassword.php">Change Password</a></button>
-                            <button type="submit" name="signout"class="btn btn-success">Sign out</button>
-                             <?php
-                                    $temp1=$_SESSION['user'];
-                                    $temp1=$_SESSION['pass'];
-
-                                    if (isset($_POST["signout"]))
-                                    {
-                                                session_unset();
-                                                session_destroy();
-                                                $url="index.php";
-                                                echo '<script>window.location = "'.$url.'";</script>';
-
-                                    }
-                            ?>
-                            
-                 </ul>
-                    
-                    </form>
-                                   
-            </div>
-
-        </div>
-    </div>
-
-        
-
-    <div class="container">
-        <div id="sidebar">
-            <ul>
-                <li><a href="Profile.php">Profile</a></li>
-                <li><a href="MyFiles.php">My Files</a></li>
-                <li><a href="upload.php">Upload File</a></li>
-                <li><a href="downloadpage.php">Download File</a></li>
-            </ul>
-        </div>
-        <div class="main-content">
-        </div>
-    </div>
-
-
-    
-       
-    
-
-
-
-    <div class="panel-footer">
-        <nav>
-            <ul class="pager">
-                <li><a href="#">Previous</a></li>
-                <ul class="pagination">
-                    <li class="disabled"><a href="#">&laquo;</a></li>
-                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
                 </ul>
-                <li><a href="#">Next</a></li>
-            </ul>
-        </nav>
+            </div>
+            <a href="Mainpage.php" class="pull-right" style="padding-top:15px;text-decoration:none;padding-right:10px;">
+                <span class="glyphicon glyphicon-home"></span>
+            </a>
+        </div>
     </div>
+
+    <div class="container" style="padding-top:70px;">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading" align="center">Profile</div>
+                    <p class="panel-body" align="center">
+                        <a href="Profile.php">
+                            <span style="font-size:4.5em;" class="glyphicon glyphicon-user"></span>
+                        </a>
+
+                        <br />
+
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default" align="center">
+                    <div class="panel-heading">My Files</div>
+                    <p class="panel-body">
+                        <a href="MyFiles.php">
+                            <span style="font-size:4.5em;" class="glyphicon glyphicon-file"></span>
+                        </a>
+
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default" align="center">
+                    <div class="panel-heading">Cloud Upload</div>
+                    <p class="panel-body">
+                        <a href="upload.php">
+                            <span style="font-size:4.5em;" class="glyphicon glyphicon-cloud-upload"></span>
+                        </a>
+
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+                <div class="panel panel-default" align="center">
+                    <div class="panel-heading">Search</div>
+                    <p class="panel-body">
+                        <a href="search.php">
+                            <span style="font-size:4.5em;" class="glyphicon glyphicon-search"></span>
+                        </a>
+
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="page-header">
+            <h4 class="pager">
+                Last Uploads
+            </h4>
+        </div>
+        <div class="row" align="center">
+            <?php
+                
+
+            ?>
+            <div class="col-md-2">
+                <div class="panel text-center" style="box-shadow: 2px 5px 2px #999;padding:20px;">
+                    <span class="glyphicon glyphicon-file" style="font-size:2.5em;"></span>
+                    <br />
+                    <a href="#" class="">
+                        <span class="glyphicon glyphicon-cloud-download"></span>
+                        Filename
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
     <script src="content/bootstrap-3.3.6/docs/assets/js/vendor/jquery.min.js"></script>
     <script src="content/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
 
